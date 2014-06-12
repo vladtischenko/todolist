@@ -1,0 +1,27 @@
+<% if @task.get('priority') % 2 == 0: %>
+  <div id='task' class='row'>
+<% else: %>
+  <div id='task' class='row'>
+<% end %>
+
+  <div id="task-complete" class='span1 links'>
+    <!-- <a id="complete-task"><%= @task.get 'complete' %></a> -->
+    <a id='complete-task'>complete</a>
+  </div>
+
+  <div class='span2'>
+    <% if @flag: %>
+      <input id='edit-task' type="text" size="10" autofocus='true' />
+    <% else: %>
+      <% if @task.get('complete'): %>
+        <strike id='task-text'><%= @task.get 'text' %></strike>
+      <% else: %>
+        <div id='task-text'><%= @task.get 'text' %></div>
+      <% end %>
+    <% end %>
+  </div>
+  
+  <div id='task-remove' class='span1 links'>
+    <a id="remove-task">remove</a>
+  </div>
+</div>

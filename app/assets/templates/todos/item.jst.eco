@@ -1,0 +1,26 @@
+<div id="todo" class='row'>
+  
+  <div style='margin-left: -10px'>
+    <% if @flag: %>
+      <div id='todo-title' class="todo-title pull-left">
+        <b>Title: </b> 
+        <input id='edit-todo' type="text" size="10" autofocus='true' />
+      </div>
+    <% else: %>
+      <div id="todo-title" class="todo-title pull-left">
+        <b><span id='title-todo'>Title: <%= @todo.get 'title' %></span></b>
+      </div>
+    <% end %>
+    
+    <div class="remove-todo pull-right">
+      <a id="remove-todo">remove todo</a>
+    </div>
+
+    <div><input id="add-task" class="field" type="text" placeholder="Type the new task..."/></div>
+    
+    <div id="all-complete" class="text-left"></div>
+  </div>
+
+  <div id="tasks"></div>
+  <div id="footer"></div>
+</div>

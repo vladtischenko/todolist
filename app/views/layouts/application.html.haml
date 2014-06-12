@@ -1,0 +1,28 @@
+!!! 5
+%html(lang="en")
+  %head
+    %title Todolist
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %span.brand Todolist
+          %p.navbar-text.pull-right
+            -if user_signed_in?
+              = link_to 'Settings', edit_user_registration_path, :class => 'navbar-link'
+              |
+              = link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'
+            -else
+              = link_to "Sign up", new_user_registration_path, :class => 'navbar-link'
+              |
+              = link_to "Login", new_user_session_path, :class => 'navbar-link'
+
+    .my_container
+      = bootstrap_flash
+      %div#app.app
+        = yield
+

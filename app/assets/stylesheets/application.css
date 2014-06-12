@@ -1,0 +1,53 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require tasks
+ *= require todos
+ *= require_tree .
+ *= require_self
+ */
+
+.app {
+  margin-top: 50px;
+  /*margin-left: 400px;*/
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+body{
+  text-align: center;
+  background-image:url(http://plugin.subtlepatterns.com/static/images/patterns/ricepaper.png);
+}
+
+.my_container {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 18px;
+  /*color: #c09853;*/
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  margin: 0 auto;
+  width: 400px;
+}
+
+.field {
+  height: 30px;
+  width: 90%;
+}

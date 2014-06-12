@@ -1,0 +1,11 @@
+<div id='todo-footer' class="text-left footer">
+  <b>
+    <span id="task-count"><%= @remaining %></span>
+    <span> tasks is not completed</span>
+  </b>
+  <% if @remaining == 0 && @size != 0: %>
+    <span id='remove-all-tasks'>
+      <a id="remove-all">remove all</a>
+    </span>
+  <% end %>
+</div>

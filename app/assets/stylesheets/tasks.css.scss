@@ -1,0 +1,45 @@
+// Place all the styles related to the Tasks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#task {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.keypress-task {
+  -webkit-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+  transform: scale(1.02);
+  margin-right: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  border-radius: 5px;
+}
+
+.links {
+  border: 1px solid grey;
+  box-shadow:
+    inset rgba(255,255,255,0.2) 8px 8px 18px 5px,
+    inset rgba(0,0,0,0.5) -8px -8px 18px 5px;
+  border-radius: 5px;
+}
+
+#edit-task {
+  margin-left: -23px;
+}
+
+.over-task {
+  background-color: #FFFFA3;
+  border-bottom: 1px solid grey;
+  border-radius: 5px;
+}
+
+.task-hover {
+  -webkit-transform: scale(0.98);
+  -ms-transform: scale(0.98);
+  transform: scale(0.98);
+  margin-right: 8px;
+  /*box-shadow: inset 10px 0px 10px -10px rgba(0, 0, 0, 0.5);*/
+  box-shadow: inset 10px 10px 10px -10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
