@@ -23,5 +23,4 @@
   <div id='task-remove' class='span1'>
     <a id="remove-task" class='btn btn-danger my-btn-remove'>X</a>
   </div>
-  <span><%= @task.get 'priority' %></span>
 </div>
