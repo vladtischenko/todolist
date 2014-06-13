@@ -14,6 +14,7 @@
     
     <div class="remove-todo pull-right">
       <a id="remove-todo" class='btn btn-danger'>X</a>
+      <span><%= @todo.get 'priority' %></span>
     </div>
 
     <div><input id="add-task" class="field" type="text" placeholder="Type the new task..."/></div>

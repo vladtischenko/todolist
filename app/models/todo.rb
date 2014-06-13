@@ -3,5 +3,5 @@ class Todo < ActiveRecord::Base
   has_many :tasks, dependent: :destroy
   validates :title, :priority, :user_id, presence: true
 
-  scope :by_user, -> (user) {where(user_id: user.id)}
+  scope :by_user, -> (user) {where(user_id: user.id).order(:priority)}
 end

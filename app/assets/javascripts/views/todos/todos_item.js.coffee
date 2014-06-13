@@ -91,7 +91,12 @@ class Todolist.Views.TodosItem extends Backbone.View
 
   createOnEnter: (event) ->
     return if event.keyCode != 13
-    @collection.create({text: @$('#add-task').val(), complete: false, todo_id: @model.get('id')}, {adding: true})
+
+    if @collection.length == 0
+      @collection.create({text: @$('#add-task').val(), complete: false, todo_id: @model.get('id'), priority: 1})
+    else
+      @collection.create({text: @$('#add-task').val(), complete: false, todo_id: @model.get('id'), priority: @collection.last().get('priority') + 1})   
+    # @collection.create({text: @$('#add-task').val(), complete: false, todo_id: @model.get('id')}, {adding: true})
     @$('#add-task').val('')
     @$('#add-task').attr('autofocus', true)
 

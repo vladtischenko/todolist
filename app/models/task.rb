@@ -7,5 +7,5 @@ class Task < ActiveRecord::Base
   validates :priority, numericality: true
   # validates :text, :priority, :complete, :todo_id, presence: true
 
-  scope :by_todo, -> (todo_id) {where(todo_id: todo_id)}
+  scope :by_todo, -> (todo_id) {where(todo_id: todo_id).order(:priority)}
 end
