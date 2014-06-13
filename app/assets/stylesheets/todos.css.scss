@@ -3,6 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+#remove-all {
+  margin-top: -5px;
+}
+
 #todo {
   background-color: #FAFAD2;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
@@ -22,11 +26,12 @@
 
 .remove-todo {
   margin: 10px;
-  border: 1px solid grey;
-  box-shadow:
-    inset rgba(255,255,255,0.2) 8px 8px 18px 5px,
-    inset rgba(0,0,0,0.5) -8px -8px 18px 5px;
-  border-radius: 5px;
+  margin-right: 15px;
+  /*border: 1px solid grey;*/
+  /*box-shadow:*/
+    /*inset rgba(255,255,255,0.2) 8px 8px 18px 5px,*/
+    /*inset rgba(0,0,0,0.5) -8px -8px 18px 5px;*/
+  /*border-radius: 5px;*/
 }
 
 .complete {

@@ -4,9 +4,8 @@
   <div id='task' class='row'>
 <% end %>
 
-  <div id="task-complete" class='span1 links'>
-    <!-- <a id="complete-task"><%= @task.get 'complete' %></a> -->
-    <a id='complete-task'>complete</a>
+  <div id="task-complete" class='span1'>
+    <a id='complete-task' class='btn btn-success my-btn-complete'>&#10004</a>
   </div>
 
   <div class='span2'>
@@ -21,7 +20,7 @@
     <% end %>
   </div>
   
-  <div id='task-remove' class='span1 links'>
-    <a id="remove-task">remove</a>
+  <div id='task-remove' class='span1'>
+    <a id="remove-task" class='btn btn-danger my-btn-remove'>X</a>
   </div>
 </div>
