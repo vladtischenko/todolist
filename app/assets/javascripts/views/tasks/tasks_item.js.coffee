@@ -40,7 +40,7 @@ class Todolist.Views.TasksItem extends Backbone.View
   cut: (e) ->
     id = e.target.id
     return if id == 'task-complete' or id == 'complete-task' or
-      id == 'task-remove' or id == 'remove-task' or id == 'edit-task'
+      id == 'task-remove' or id == 'remove-task' or id == 'edit-task' or id == 'task-text'
     @$el.removeClass('over-task')
     @$el.addClass('keypress-task')
     model_id = @model.get('id')

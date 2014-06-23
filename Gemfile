@@ -49,6 +49,8 @@ gem "minitest"
 
 gem "selenium-webdriver"
 
+gem 'jasmine'
+
 gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
 
 gem 'guard-jasmine'
@@ -63,6 +65,9 @@ gem 'guard-jasmine'
   gem 'faker'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
+
+  gem 'guard-rspec'
+  gem 'launchy'
 # end
 
 # Use ActiveModel has_secure_password
