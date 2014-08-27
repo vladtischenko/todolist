@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :tasks
   end
 
+  post '/tasks/upload/:id', to: 'tasks#upload', as: :upload_file_task
+
   root :to => redirect('/todos')
 
   # The priority is based upon order of creation: first created -> highest priority.

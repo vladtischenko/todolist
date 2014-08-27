@@ -2,27 +2,48 @@ class Todolist.Views.TasksItem extends Backbone.View
 
   template: JST['tasks/item']
   events:
-    'click #remove-task'  : 'removeTask'
-    'click #complete-task': 'toggleComplete'
-    'dblclick #task-text' : 'editTask'
-    'keypress #edit-task' : 'editOnEnter'
-    'blur #edit-task'     : 'render'
-    'mousedown #task'     : 'cut'
-    'mouseup #task'       : 'release'
-    'mouseover #task'     : 'over'
-    'mouseout #task'      : 'out'
-
+    'click #remove-task'   : 'removeTask'
+    'click #complete-task' : 'toggleComplete'
+    'click #remove-image'  : 'removeImage'
+    'dblclick #task-text'  : 'editTask'
+    'keypress #edit-task'  : 'editOnEnter'
+    'blur #edit-task'      : 'render'
+    'mousedown #task'      : 'cut'
+    'mouseup #task'        : 'release'
+    'mouseover #task'      : 'over'
+    'mouseout #task'       : 'out'
+    'click #image'         : 'showImage'
+    'click #open-file-area': 'toggleOpenFileArea'
+    'change #fileupload'   : 'dispatchUpdatePreview'
 
   model_id = null
   todo_id = null
-    
+
   initizlize: ->
     @model.bind 'destroy', @remove, @
     @model.bind 'change', @render, @
 
   render: ->
+    # if @model.get('file_for_task')
+      # file_url = @model.get('file_for_task').url if @model.get('file_for_task').url
+    # if file
+      # tmp = _.last(@model.get('file').url, 3)
+      # extension = tmp.toString().replace(/,/, '').replace(',', '')
+    # $(@el).html(@template(task: @model, file: file, ext: extension))
     $(@el).html(@template(task: @model))
     @
+  
+  toggleOpenFileArea: ->
+    if @$('#file-area').hasClass('hide')
+      @$('#file-area').removeClass('hide')
+    else
+      @$('#file-area').addClass('hide')
+
+  showImage: (e) ->
+    $('#image').magnificPopup({
+        items: {src: @model.get('file_for_task').url },
+        type:'image'
+      })    
 
   over: ->
     unless model_id and todo_id
@@ -40,7 +61,11 @@ class Todolist.Views.TasksItem extends Backbone.View
   cut: (e) ->
     id = e.target.id
     return if id == 'task-complete' or id == 'complete-task' or
-      id == 'task-remove' or id == 'remove-task' or id == 'edit-task' or id == 'task-text'
+      id == 'upload_photos' or id == 'task-remove' or
+      id == 'remove-task' or id == 'edit-task' or
+      id == 'task-text' or id == 'fileupload' or
+      id == 'submit' or id == 'remove-image' or
+      id == 'mini-image' or id == 'icon-image' or id == 'image'
     @$el.removeClass('over-task')
     @$el.addClass('keypress-task')
     model_id = @model.get('id')
@@ -57,9 +82,19 @@ class Todolist.Views.TasksItem extends Backbone.View
     @model.drag(@model.get('todo_id'), model_id, @model.get('id'))
     model_id = todo_id = null
 
+  dispatchUpdatePreview: (e) ->
+    @model.setFromFile(e.target.files[0])
+    $(@el).html(@template(task: @model))
+    @
+
   removeTask: ->
     @model.changePriority(@model.get('todo_id'), @model.get('id'))
     @model.destroy()
+
+  removeImage: ->
+    @model.set({file_for_task: null}).save()
+    $(@el).html(@template(task: @model))
+    @
 
   toggleComplete: ->
     @model.set({complete: !@model.get('complete')}).save()

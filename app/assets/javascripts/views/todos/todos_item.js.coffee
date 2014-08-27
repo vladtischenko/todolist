@@ -24,6 +24,7 @@ class Todolist.Views.TodosItem extends Backbone.View
     @collection.bind 'change:priority', @render, @
     @collection.bind 'change:complete', @renderFooter, @
     @collection.bind 'change:complete', @renderAllComplete, @
+    @collection.bind 'change:file_for_task', @render, @
     @model.bind 'destroy', @remove, @
     @model.bind 'destroy', @render, @
     @model.bind 'change', @render, @
@@ -59,7 +60,10 @@ class Todolist.Views.TodosItem extends Backbone.View
       id == 'remove-task' or id == 'remove-todo' or
       id == 'edit-todo' or id == 'remove-all'or
       id == 'task' or id == 'title-todo' or
-      id == 'task-complete' or id == 'task-remove' or id == 'edit-task'
+      id == 'task-complete' or id == 'task-remove' or
+      id == 'edit-task' or id == 'fileupload' or
+      id == 'submit' or id == 'remove-image' or
+      id == 'mini-image' or id == 'icon-image' or id == 'image'
     @$el.addClass('keypress-todo')
     model_id = @model.get('id')
 
@@ -95,8 +99,7 @@ class Todolist.Views.TodosItem extends Backbone.View
     if @collection.length == 0
       @collection.create({text: @$('#add-task').val(), complete: false, todo_id: @model.get('id'), priority: 1})
     else
-      @collection.create({text: @$('#add-task').val(), complete: false, todo_id: @model.get('id'), priority: @collection.last().get('priority') + 1})   
-    # @collection.create({text: @$('#add-task').val(), complete: false, todo_id: @model.get('id')}, {adding: true})
+      @collection.create({text: @$('#add-task').val(), complete: false, todo_id: @model.get('id'), priority: @collection.last().get('priority') + 1})
     @$('#add-task').val('')
     @$('#add-task').attr('autofocus', true)
 

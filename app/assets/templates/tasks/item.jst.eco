@@ -8,19 +8,43 @@
     <a id='complete-task' class='btn btn-success my-btn-complete'>&#10004</a>
   </div>
 
-  <div class='span2'>
+  <div class='span1'>
     <% if @flag: %>
       <input id='edit-task' type="text" size="10" autofocus='true' />
     <% else: %>
       <% if @task.get('complete'): %>
-        <strike id='task-text'><%= @task.get 'text' %></strike>
+        <strike id='task-text' class='strike'><%= @task.get 'text' %></strike>
       <% else: %>
-        <div id='task-text'><%= @task.get 'text' %></div>
+        <div id='task-text'><font size='3'><%= @task.get 'text' %></font></div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div id='open-file-area' class='span1'>
+    <% if @task.get('file_for_task'): %>
+      <% if @task.get('file_for_task').url : %>
+        <img id='mini-image' style='border: 1px solid grey' src=<%= @task.get('file_for_task').url %> width='27'  height='27'/>
+      <% else: %>
+        <div id='icon-image' class='icon-book'></div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div id='task-remove' class='span1'>
+    <a id="remove-task" class='btn btn-danger my-btn-remove'>X</a>
+  </div>
+
+  <div id='file-area' class='hide'>
+    <form id='uploadForm' enctype="multipart/form-data" data-remote='true'>
+      <input id='fileupload' type="file"/>
+    </form>
+  
+    <% if @task.get('file_for_task'): %>
+      <% if @task.get('file_for_task').url : %>
+        <img id='image' style='border: 1px solid grey' width='50' height='50' src=<%= @task.get('file_for_task').url %> />
+        <a id='remove-image' class='btn btn-danger my-btn-remove'>X</a>
       <% end %>
     <% end %>
   </div>
   
-  <div id='task-remove' class='span1'>
-    <a id="remove-task" class='btn btn-danger my-btn-remove'>X</a>
-  </div>
 </div>

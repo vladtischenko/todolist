@@ -151,6 +151,7 @@ GEM
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     lumberjack (1.0.6)
+    magnific-popup-rails (0.9.9)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -302,6 +303,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   less-rails
+  magnific-popup-rails
   mini_magick
   minitest
   pg

@@ -55,6 +55,8 @@ gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
 
 gem 'guard-jasmine'
 
+gem 'magnific-popup-rails'
+
 # group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'

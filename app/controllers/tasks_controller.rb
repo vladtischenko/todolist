@@ -54,7 +54,11 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1.json
   def update
     respond_to do |format|
-      if @task.update(task_params)
+      if @task.update(convert_data_uri_to_upload(task_params, params[:name]))
+        unless params[:file_for_task]
+          @task.remove_file_for_task!
+          @task.save
+        end
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
         format.json { render json: @task, status: :ok, location: @task }
       else
@@ -82,6 +86,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:text, :complete, :priority, :todo_id, :file)
+      params.require(:task).permit(:text, :complete, :priority, :todo_id, :file_for_task)
     end
 end

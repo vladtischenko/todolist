@@ -12,6 +12,7 @@
  *
  *= require tasks
  *= require todos
+ *= require magnific-popup
  *= require_tree .
  *= require_self
  */
