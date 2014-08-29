@@ -6,8 +6,8 @@ feature 'Add todo' do
     login_as @user, scope: :user
   end
   
-  scenario 'User add new todo', js: true do
+  scenario 'User add new todo', :js => true do
     visit todos_path
-    # expect(page).to have_selector 'input#add-todo'
+    expect(page).to have_selector 'input#add-todo'
   end
 end
