@@ -34,7 +34,6 @@ class Todolist.Views.TodosItem extends Backbone.View
   render: ->
     $(@el).html(@template(todo: @model))
     @getContent()
-    @$('#add-task').attr('autofocus', true)
     @
 
   renderAllComplete: ->
@@ -63,7 +62,9 @@ class Todolist.Views.TodosItem extends Backbone.View
       id == 'task-complete' or id == 'task-remove' or
       id == 'edit-task' or id == 'fileupload' or
       id == 'submit' or id == 'remove-image' or
-      id == 'mini-image' or id == 'icon-image' or id == 'image'
+      id == 'mini-image' or id == 'icon-image' or
+      id == 'image' or id =='complete-icon' or
+      id == 'remove-icon' or id == 'remove-todo-icon' or id == 'remove-img'
     @$el.addClass('keypress-todo')
     model_id = @model.get('id')
 
@@ -95,7 +96,6 @@ class Todolist.Views.TodosItem extends Backbone.View
 
   createOnEnter: (event) ->
     return if event.keyCode != 13
-
     if @collection.length == 0
       @collection.create({text: @$('#add-task').val(), complete: false, todo_id: @model.get('id'), priority: 1})
     else

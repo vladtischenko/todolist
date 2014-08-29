@@ -36,11 +36,15 @@ class Todolist.Views.TasksItem extends Backbone.View
   toggleOpenFileArea: ->
     if @$('#file-area').hasClass('hide')
       @$('#file-area').removeClass('hide')
+      @$('#icon-image').removeClass('icon-arrow-down')
+      @$('#icon-image').addClass('icon-arrow-up')
     else
       @$('#file-area').addClass('hide')
+      @$('#icon-image').removeClass('icon-arrow-up')
+      @$('#icon-image').addClass('icon-arrow-down')
 
   showImage: (e) ->
-    $('#image').magnificPopup({
+    @$('#image').magnificPopup({
         items: {src: @model.get('file_for_task').url },
         type:'image'
       })    
@@ -65,7 +69,9 @@ class Todolist.Views.TasksItem extends Backbone.View
       id == 'remove-task' or id == 'edit-task' or
       id == 'task-text' or id == 'fileupload' or
       id == 'submit' or id == 'remove-image' or
-      id == 'mini-image' or id == 'icon-image' or id == 'image'
+      id == 'mini-image' or id == 'icon-image' or 
+      id == 'image' or id =='complete-icon' or
+      id == 'remove-icon' or id == 'remove-todo-icon' or id == 'remove-img'
     @$el.removeClass('over-task')
     @$el.addClass('keypress-task')
     model_id = @model.get('id')

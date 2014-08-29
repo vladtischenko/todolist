@@ -27,6 +27,10 @@ gem 'spring',        group: :development
 
 gem 'rails_12factor', group: :production
 
+gem 'carrierwave-aws'
+
+gem 'figaro'
+
 gem 'carrierwave'
 
 gem 'mini_magick'

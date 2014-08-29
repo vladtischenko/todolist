@@ -13,7 +13,7 @@
     <% end %>
     
     <div class="remove-todo pull-right">
-      <a id="remove-todo" class='btn btn-danger'>X</a>
+      <a id="remove-todo" class='btn btn-danger'><span id='remove-todo-icon' class='icon-remove'></span></a>
     </div>
 
     <div><input id="add-task" class="field" type="text" placeholder="Type the new task..."/></div>

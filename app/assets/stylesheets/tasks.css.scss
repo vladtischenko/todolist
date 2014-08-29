@@ -7,16 +7,55 @@
   padding-bottom: 5px;
 }
 
+#task-remove {
+  margin-right: 12px;
+}
+
 .my-btn-complete {
   margin-right: 35px; 
 }
 
 .my-btn-remove {
-  margin-left: 35px;
+  vertical-align: top;
+  display: inline-block;
+  margin: 0;
+}
+
+#remove-image {
+  vertical-align: top;
+  display: inline-block;
+  margin: 0; 
+}
+
+.file-area {
+  margin-top: 50px;
+}
+
+#open-file-area {
+  margin-left: 30px;
+}
+
+#mini-image {
+  border: 1px solid grey;
+  width: 27px;
+}
+
+.main-image {
+  border: 1px solid grey;
+  margin-left: -130px;
+  width: 50px;
 }
 
 .strike {
   color: grey;
+}
+
+.float-left {
+  float: left;
+}
+
+.no-file {
+  margin-left: -130px;
 }
 
 .bar {
@@ -59,4 +98,24 @@
   /*box-shadow: inset 10px 0px 10px -10px rgba(0, 0, 0, 0.5);*/
   box-shadow: inset 10px 10px 10px -10px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
+}
+
+.browse-button { 
+  margin-left: 100px;
+  cursor: pointer;
+  float: left;
+  overflow: hidden;
+  position: relative;
+}
+.browse-button input[type="button"] { 
+  cursor: pointer;
+}
+.browse-button input[type="file"] { 
+  width: 150px; 
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  cursor: pointer;
+  opacity: 0;
+  filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
 }
