@@ -11,12 +11,28 @@
 
   <div class='span2'>
     <% if @flag: %>
-      <input id='edit-task' type="text" size="10" autofocus='true' />
+      <% if @task.get('text').length < 20 : %>
+        <input id='edit-task' type="text" size="10" autofocus='true' />
+      <% else: %>
+        <textarea id='edit-task' rows="5" cols="5" name="text">
+          <%= @task.get 'text' %>
+        </textarea>
+      <% end %>
     <% else: %>
       <% if @task.get('complete'): %>
-        <strike id='task-text' class='strike'><%= @task.get 'text' %></strike>
+        <% if @task.get('text').length < 20 : %>
+          <strike id='task-text' class='strike'><%= @task.get 'text' %></strike>
+        <% else: %>
+          <strike id='task-text' class='strike'><%= @task.get('text').substring(0, 17) + '...' %></strike>
+        <% end %>
       <% else: %>
-        <div id='task-text'><%= @task.get 'text' %></div>
+        <div id='task-text'>
+          <% if @task.get('text').length < 20 : %>
+            <%= @task.get('text') %>
+          <% else: %>
+            <%= @task.get('text').substring(0, 17) + '...' %>
+          <% end %>
+        </div>
       <% end %>
     <% end %>
   </div>

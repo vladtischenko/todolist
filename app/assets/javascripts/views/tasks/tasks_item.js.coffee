@@ -15,6 +15,7 @@ class Todolist.Views.TasksItem extends Backbone.View
     'click #image'         : 'showImage'
     'click #open-file-area': 'toggleOpenFileArea'
     'change #fileupload'   : 'dispatchUpdatePreview'
+    'click #small-text'    : 'showFullText'
 
   model_id = null
   todo_id = null
@@ -116,3 +117,4 @@ class Todolist.Views.TasksItem extends Backbone.View
     return if event.keyCode != 13
     @model.set({text: @$('#edit-task').val()}).save()
     $(@el).html(@template(task: @model))
+    @
