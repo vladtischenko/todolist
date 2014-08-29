@@ -14,7 +14,7 @@
       <% if @task.get('text').length < 20 : %>
         <input id='edit-task' type="text" size="10" autofocus='true' />
       <% else: %>
-        <textarea id='edit-task' rows="5" cols="5" name="text">
+        <textarea id='edit-task' class='area-text' rows="5" cols="5" name="text">
           <%= @task.get 'text' %>
         </textarea>
       <% end %>
