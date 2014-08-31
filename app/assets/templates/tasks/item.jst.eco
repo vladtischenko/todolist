@@ -11,7 +11,7 @@
 
   <div class='span2'>
     <% if @flag: %>
-      <% if @task.get('text').length < 20 : %>
+      <% if @task.get('text').length < 40 : %>
         <input id='edit-task' type="text" size="10" autofocus='true' />
       <% else: %>
         <textarea id='edit-task' class='area-text' rows="5" cols="5" name="text">
@@ -20,17 +20,17 @@
       <% end %>
     <% else: %>
       <% if @task.get('complete'): %>
-        <% if @task.get('text').length < 20 : %>
+        <% if @task.get('text').length < 40 : %>
           <strike id='task-text' class='strike'><%= @task.get 'text' %></strike>
         <% else: %>
-          <strike id='task-text' class='strike'><%= @task.get('text').substring(0, 17) + '...' %></strike>
+          <strike id='task-text' class='strike'><%= @task.get('text').substring(0, 37) + '...' %></strike>
         <% end %>
       <% else: %>
         <div id='task-text'>
-          <% if @task.get('text').length < 20 : %>
+          <% if @task.get('text').length < 40 : %>
             <%= @task.get('text') %>
           <% else: %>
-            <%= @task.get('text').substring(0, 17) + '...' %>
+            <%= @task.get('text').substring(0, 37) + '...' %>
           <% end %>
         </div>
       <% end %>
