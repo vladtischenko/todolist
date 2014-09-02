@@ -1,8 +1,10 @@
 <% if @task.get('priority') % 2 == 0: %>
-  <div id='task' class='row'>
+  <div id='task_<%= @task.get('id') %>' class='row task'>
 <% else: %>
-  <div id='task' class='row'>
+  <div id='task_<%= @task.get('id') %>' class='row task'>
 <% end %>
+
+  <div id="task<%= @task.get('id') %>" class='drag' >drag</div>
 
   <div id="task-complete" class='span1'>
     <!-- <a id='complete-task' class='btn btn-success my-btn-complete'>&#10004</a> -->
@@ -12,9 +14,9 @@
   <div class='span2'>
     <% if @flag: %>
       <% if @task.get('text').length < 40 : %>
-        <input id='edit-task' type="text" size="10" autofocus='true' />
+        <input id='edit-task' name='Edit task' type="text" size="10" autofocus='true' />
       <% else: %>
-        <textarea id='edit-task' class='area-text' rows="5" cols="5" name="text">
+        <textarea id='edit-task' name='Edit task' class='area-text' rows="5" cols="5" name="text">
           <%= @task.get 'text' %>
         </textarea>
       <% end %>
@@ -58,8 +60,8 @@
   <div id='file-area' class='hide file-area'>
     <form id='uploadForm' enctype="multipart/form-data" data-remote='true'>
       <div class='browse-button'>
-        <input type='button' value='Browse' class='btn'>
-        <input id='fileupload' type="file"/>
+        <input id='browse' type='button' value='Browse' class='btn'>
+        <input id='fileupload' name='Image' type="file"/>
       </div>
     </form>
     <% if @task.get('file_for_task'): %>

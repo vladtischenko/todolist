@@ -7,10 +7,10 @@ class Todolist.Views.TodosItem extends Backbone.View
     'click #remove-all'   : 'removeAll'
     'keypress #add-task'  : 'createOnEnter'
     'click #all-complete' : 'render'
-    'mousedown #todo'     : 'cut'
-    'mouseup #todo'       : 'release'
-    'mouseover #todo'     : 'over'
-    'mouseout #todo'      : 'out'
+    'mousedown .todo'     : 'cut'
+    'mouseup .todo'       : 'release'
+    'mouseover .todo'     : 'over'
+    'mouseout .todo'      : 'out'
     'dblclick #todo-title': 'editTodo'
     'keypress #edit-todo' : 'editOnEnter'
     'blur #edit-todo'     : 'render'
@@ -54,17 +54,18 @@ class Todolist.Views.TodosItem extends Backbone.View
 
   cut: (e) ->
     id = e.target.id
+    return if id.substring(0, 5) == 'task_'
     return if id == 'complete' or id == 'add-task' or
       id == 'task-text' or id == 'complete-task' or
       id == 'remove-task' or id == 'remove-todo' or
       id == 'edit-todo' or id == 'remove-all'or
-      id == 'task' or id == 'title-todo' or
-      id == 'task-complete' or id == 'task-remove' or
-      id == 'edit-task' or id == 'fileupload' or
-      id == 'submit' or id == 'remove-image' or
-      id == 'mini-image' or id == 'icon-image' or
-      id == 'image' or id =='complete-icon' or
-      id == 'remove-icon' or id == 'remove-todo-icon' or id == 'remove-img'
+      id == 'title-todo' or id == 'task-complete' or
+      id == 'task-remove' or id == 'edit-task' or 
+      id == 'fileupload' or id == 'submit' or
+      id == 'remove-image' or id == 'mini-image' or
+      id == 'icon-image' or id == 'image' or
+      id =='complete-icon' or id == 'remove-icon' or
+      id == 'remove-todo-icon' or id == 'remove-img'
     @$el.addClass('keypress-todo')
     model_id = @model.get('id')
 

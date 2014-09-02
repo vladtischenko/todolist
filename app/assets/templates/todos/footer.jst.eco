@@ -5,7 +5,7 @@
   </b>
   <% if @remaining == 0 && @size != 0: %>
     <span id='remove-all-tasks'>
-      <a id="remove-all" class='btn btn-link'>remove all</a>
+      <a id="remove-all" name='Remove all' class='btn btn-link'>remove all</a>
     </span>
   <% end %>
 </div>

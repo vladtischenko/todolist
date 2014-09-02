@@ -1,10 +1,12 @@
-<div id="todo" class='row'>
-  
+<div id="todo_<%= @todo.get('id') %>" class='row todo'>
+
+  <div id="todo<%= @todo.get('id') %>" class='drag' >drag</div>
+
   <div style='margin-left: -10px'>
     <% if @flag: %>
       <div id='todo-title' class="todo-title pull-left">
         <b>Title: </b> 
-        <input id='edit-todo' type="text" size="10" autofocus='true' />
+        <input id='edit-todo' name='Edit todo' type="text" size="10" autofocus='true' />
       </div>
     <% else: %>
       <div id="todo-title" class="todo-title pull-left">
@@ -16,7 +18,7 @@
       <a id="remove-todo" class='btn btn-danger'><span id='remove-todo-icon' class='icon-remove'></span></a>
     </div>
 
-    <div><input id="add-task" class="field" type="text" placeholder="Type the new task..."/></div>
+    <div><input id="add-task" name='Add task' class="field" type="text" placeholder="Type the new task..."/></div>
     
     <div id="all-complete" class="text-left"></div>
   </div>

@@ -6,13 +6,18 @@
   word-wrap: break-word;
 }
 
-#task {
+.task {
   padding-top: 5px;
   padding-bottom: 5px;
+  margin: 0 auto!important;
+}
+
+#task-complete {
+  margin-left: -1px;
 }
 
 #task-remove {
-  margin-right: 12px;
+  margin-right: 13px;
 }
 
 .my-btn-complete {
@@ -45,7 +50,12 @@
 
 #mini-image {
   border: 1px solid grey;
+  margin-left: 15px;
   width: 27px;
+}
+
+#icon-image {
+  margin-left: 15px;
 }
 
 .main-image {
@@ -89,7 +99,7 @@
 }
 
 #edit-task {
-  margin-left: -23px;
+  margin-left: -5px;
 }
 
 .over-task {

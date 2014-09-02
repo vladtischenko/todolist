@@ -1,2 +1,2 @@
-<div><input id="add-todo" class="field" type="text" placeholder="Type todo title..."/></div>
+<div><input id="add-todo" name='Add todo' class="field" type="text" placeholder="Type todo title..."/></div>
 <div id="todos"></div>
