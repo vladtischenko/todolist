@@ -10,11 +10,29 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require tasks
  *= require todos
+ *= require tasks
+ *= require magnific-popup
  *= require_tree .
  *= require_self
  */
+
+.row {
+  /*margin: 0 auto!important;*/
+  margin-left: 1px;
+  width: 410px;
+}
+
+.navbar-link:hover {
+  background-color: white;
+}
+
+.drag {
+  position: relative;
+  z-index: -1;
+  height: 0px;
+  color: white;
+}
 
 .app {
   margin-top: 50px;

@@ -1,8 +1,8 @@
 <div id="todo-complete-el" class="text-left complete">
   <% if @all: %>
-    <input id="complete" type="checkbox" checked="true" />
+    <input id="complete" name='All complete' type="checkbox" checked="true" />
   <% else: %>
-    <input id="complete" type="checkbox" />
+    <input id="complete" name='All complete' type="checkbox" />
   <% end %>
   <b id="mark_all">mark all as complete</b>
 </div>

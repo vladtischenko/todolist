@@ -28,6 +28,10 @@ gem 'spring',        group: :development
 
 gem 'rails_12factor', group: :production
 
+gem 'carrierwave-aws'
+
+gem 'figaro'
+
 gem 'carrierwave'
 
 gem 'mini_magick'
@@ -48,23 +52,30 @@ gem "cancan"
 
 gem "minitest"
 
-gem "selenium-webdriver"
+gem 'jasmine'
 
 gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
 
 gem 'guard-jasmine'
 
-# group :development, :test do
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
-# end
+gem 'magnific-popup-rails'
 
-# group :test do
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'rspec-retry'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem "selenium-webdriver"
   gem 'capybara'
   gem 'faker'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
-# end
+
+  gem 'guard-rspec'
+  gem 'launchy'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

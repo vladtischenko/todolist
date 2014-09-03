@@ -1,7 +1,15 @@
 class Todolist.Models.Task extends Backbone.Model
 
+  setFromFile: (file) ->
+    reader = new FileReader()
+    self = @
+    reader.onload = (
+      (e) ->
+        self.save({file_for_task: e.target.result, name: file.name})
+      )
+    reader.readAsDataURL(file)
+
   changePriority: (todo_id, model_id) ->
-    
     tasks = new Todolist.Collections.Tasks
     @collection.models.filter (model) ->
       tasks.add(model) if todo_id == model.get('todo_id')
@@ -26,7 +34,6 @@ class Todolist.Models.Task extends Backbone.Model
 
 
   drag: (todo_id, first_id, second_id) ->
-
     tasks = new Todolist.Collections.Tasks
     @collection.models.filter (model) ->
       tasks.add(model) if todo_id == model.get('todo_id')

@@ -1,27 +1,77 @@
 <% if @task.get('priority') % 2 == 0: %>
-  <div id='task' class='row'>
+  <div id='task_<%= @task.get('id') %>' class='row task'>
 <% else: %>
-  <div id='task' class='row'>
+  <div id='task_<%= @task.get('id') %>' class='row task'>
 <% end %>
 
-  <div id="task-complete" class='span1 links'>
-    <!-- <a id="complete-task"><%= @task.get 'complete' %></a> -->
-    <a id='complete-task'>complete</a>
+  <div id="task<%= @task.get('id') %>" class='drag' >drag</div>
+
+  <div id="task-complete" class='span1'>
+    <!-- <a id='complete-task' class='btn btn-success my-btn-complete'>&#10004</a> -->
+    <a id='complete-task' class='btn btn-success my-btn-complete'><span id='complete-icon' class='icon-ok'></span></a>
   </div>
 
   <div class='span2'>
     <% if @flag: %>
-      <input id='edit-task' type="text" size="10" autofocus='true' />
+      <% if @task.get('text').length < 40 : %>
+        <input id='edit-task' name='Edit task' type="text" size="10" autofocus='true' />
+      <% else: %>
+        <textarea id='edit-task' name='Edit task' class='area-text' rows="5" cols="5" name="text">
+          <%= @task.get 'text' %>
+        </textarea>
+      <% end %>
     <% else: %>
       <% if @task.get('complete'): %>
-        <strike id='task-text'><%= @task.get 'text' %></strike>
+        <% if @task.get('text').length < 40 : %>
+          <strike id='task-text' class='strike'><%= @task.get 'text' %></strike>
+        <% else: %>
+          <strike id='task-text' class='strike'><%= @task.get('text').substring(0, 37) + '...' %></strike>
+        <% end %>
       <% else: %>
-        <div id='task-text'><%= @task.get 'text' %></div>
+        <div id='task-text'>
+          <% if @task.get('text').length < 40 : %>
+            <%= @task.get('text') %>
+          <% else: %>
+            <%= @task.get('text').substring(0, 37) + '...' %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div id='open-file-area' class='pull-left float-left'>
+    <% if @task.get('file_for_task'): %>
+      <% if @task.get('file_for_task').url : %>
+        <% unless @flag: %>
+          <img id='mini-image' src='<%= @task.get('file_for_task').url %>'/>
+        <% end %>
+      <% else: %>
+        <% unless @flag: %>
+          <div id='icon-image' class='icon-arrow-down'></div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div id='task-remove' class='pull-right'>
+    <a id="remove-task" class='btn btn-danger my-btn-remove'><span id='remove-icon' class='icon-remove'></span></a>
+  </div>
+
+  <div id='file-area' class='hide file-area'>
+    <form id='uploadForm' enctype="multipart/form-data" data-remote='true'>
+      <div class='browse-button'>
+        <input id='browse' type='button' value='Browse' class='btn'>
+        <input id='fileupload' name='Image' type="file"/>
+      </div>
+    </form>
+    <% if @task.get('file_for_task'): %>
+      <% if @task.get('file_for_task').url : %>
+        <img id='image' class='main-image' src='<%= @task.get('file_for_task').url %>'/>
+        <a id='remove-image' class='btn btn-mini btn-danger my-btn-remove'><span id='remove-img' class='icon-remove'></span></a>
+      <% else: %>
+        <span class='no-file'>No file chosen</span>
       <% end %>
     <% end %>
   </div>
   
-  <div id='task-remove' class='span1 links'>
-    <a id="remove-task">remove</a>
-  </div>
 </div>

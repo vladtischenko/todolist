@@ -15,6 +15,7 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require underscore
+//= require magnific-popup
 //= require backbone
 //= require todolist
 //= require_tree ../templates
@@ -22,4 +23,5 @@
 //= require_tree ./collections
 //= require_tree ./views
 //= require_tree ./routers
+//= require_tree ../../../vendor/assets/javascripts/.
 //= require_tree .

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140603071306) do
+ActiveRecord::Schema.define(version: 20140822130504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140603071306) do
     t.string   "text"
     t.integer  "priority"
     t.boolean  "complete"
-    t.string   "file"
+    t.string   "file_for_task"
   end
 
   add_index "tasks", ["todo_id"], name: "index_tasks_on_todo_id", using: :btree

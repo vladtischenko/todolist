@@ -19,8 +19,10 @@ class Ability
 
     can :new, Task
     can :create, Task
+    can :update_attachment, Task, todo_id: todo.id
     can :index, Task, todo_id: todo.id
     can :update, Task, todo_id: todo.id
+    can :upload, Task, todo_id: todo.id
     can :destroy, Task, todo_id: todo.id
 
     cannot :index, Task, todo_id: todo.id + 1

@@ -28,6 +28,8 @@ class Todolist.Views.TodosIndex extends Backbone.View
       tasks = @tasks_by_todo(all_tasks, todo)
       view = new Todolist.Views.TodosItem model: todo, collection: tasks
       @$('#todos').prepend(view.render().el)
+
+    @$('#add-todo').attr('autofocus', true) if @collection.size() == 0
     @
 
   createOnEnter: (event) ->

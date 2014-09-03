@@ -12,3 +12,4 @@ class Todolist.Views.AllComplete extends Backbone.View
     else
       $(@el).html(@template({all: false}))
       @
+      
