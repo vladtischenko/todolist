@@ -15,7 +15,7 @@ feature 'Mark task as done' do
     @user.destroy
   end
 
-  scenario 'User add new task', :js => true do
+  scenario 'User marks task as done', :js => true do
     page.find('#complete-task').click
     wait_for_ajax
     expect(page).to have_selector 'strike'

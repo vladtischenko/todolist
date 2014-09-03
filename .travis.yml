@@ -11,3 +11,4 @@ deploy:
   access_key_id: ENV["S3_SEY"]
   secret_access_key: ENV["S3_SECRET"]
   bucket: "todolist-vlad"
+  

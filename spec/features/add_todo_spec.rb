@@ -10,7 +10,7 @@ feature 'Add todo' do
     @user.destroy
   end
 
-  scenario 'User add new todo', :js => true do
+  scenario 'User adds new todo', :js => true do
     visit root_path
     fill_in 'Add todo', with: Faker::Lorem.sentence
     find('#add-todo').native.send_keys(:enter)

@@ -3,8 +3,8 @@ require 'features/features_spec_helper'
 feature 'Drag todo' do
   background do
     @user = FactoryGirl.create :user
-    @todo1 = Todo.create(title: 'new todo', priority: 1, user: @user)
-    @todo2 = Todo.create(title: 'new todo2', priority: 2, user: @user)
+    @todo1 = FactoryGirl.create :todo, user: @user
+    @todo2 = FactoryGirl.create :todo, user: @user, priority: @todo1.priority + 1 
     login_as @user, scope: :user
     visit root_path
   end
@@ -15,7 +15,7 @@ feature 'Drag todo' do
     @user.destroy
   end
 
-  scenario 'User drag todos', :js => true do
+  scenario 'User drags todos', :js => true, :retry => 2, :retry_wait => 2 do
     todo1_id = '#todo' + @todo1.id.to_s
     todo2_id = '#todo' + @todo2.id.to_s
 
@@ -23,6 +23,11 @@ feature 'Drag todo' do
     new_group_element = find(todo2_id)
     item_element.drag_to new_group_element
 
-    @todo1.reload.priority.should > @todo2.reload.priority
+    wait_for_ajax
+    
+    @todo1.reload
+    @todo2.reload
+
+    @todo1.priority.should > @todo2.priority
   end
 end

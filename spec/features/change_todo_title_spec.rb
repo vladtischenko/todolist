@@ -13,7 +13,7 @@ feature 'Change todo title' do
     @user.destroy
   end
 
-  scenario 'User change todo title', :js => true do
+  scenario 'User changes todo title', :js => true do
     page.find('#title-todo').double_click
     fill_in 'Edit todo', with: 'new todo'
     find('input#edit-todo').native.send_keys(:enter)

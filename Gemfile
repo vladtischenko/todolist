@@ -61,6 +61,7 @@ gem 'magnific-popup-rails'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'rspec-retry'
   gem 'factory_girl_rails'
 end
 

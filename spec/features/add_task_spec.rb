@@ -13,7 +13,7 @@ feature 'Add task' do
     @user.destroy
   end
   
-  scenario 'User add new task', :js => true do
+  scenario 'User adds new task', :js => true do
     text = Faker::Lorem.sentence
     fill_in 'Add task', with: text
     find('input#add-task').native.send_keys(:enter)

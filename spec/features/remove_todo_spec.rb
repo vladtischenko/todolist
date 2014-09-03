@@ -13,7 +13,7 @@ feature 'Remove todo' do
     @user.destroy
   end
 
-  scenario 'User remove todo', :js => true do
+  scenario 'User removes todo', :js => true do
     page.find('#remove-todo').click
     wait_for_ajax
     expect(page).not_to have_selector 'input#add-task'

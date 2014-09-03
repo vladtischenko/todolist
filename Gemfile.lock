@@ -232,6 +232,8 @@ GEM
       rspec-expectations (~> 3.0.0)
       rspec-mocks (~> 3.0.0)
       rspec-support (~> 3.0.0)
+    rspec-retry (0.3.0)
+      rspec
     rspec-support (3.0.0)
     rubyzip (1.1.4)
     sass (3.2.19)
@@ -321,6 +323,7 @@ DEPENDENCIES
   rails (= 4.1.0)
   rails_12factor
   rspec-rails
+  rspec-retry
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   selenium-webdriver

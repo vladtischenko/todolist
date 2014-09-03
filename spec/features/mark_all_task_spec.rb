@@ -17,7 +17,7 @@ feature 'Mark all task as complete' do
     @user.destroy
   end
 
-  scenario 'User mark all task as complete', :js => true do
+  scenario 'User marks all task as complete', :js => true do
     check 'All complete'
     expect(page).to have_selector 'a#remove-all'
     expect(page).to have_content '0 tasks is not completed'

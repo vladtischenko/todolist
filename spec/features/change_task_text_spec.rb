@@ -15,7 +15,7 @@ feature 'Change task text' do
     @user.destroy
   end
 
-  scenario 'User change task text', :js => true do
+  scenario 'User changes task text', :js => true do
     page.find('#task-text').double_click
     fill_in 'Edit task', with: 'new task'
     find('#edit-task').native.send_keys(:enter)

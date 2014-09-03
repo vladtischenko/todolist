@@ -4,6 +4,7 @@ require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'database_cleaner'
+require 'rspec/retry'
 # require 'rspec/autorun'
 # DatabaseCleaner.strategy = :truncation
 
@@ -36,6 +37,8 @@ RSpec.configure do |config|
 
   # config.raise_errors_for_deprecations!
 
+  config.verbose_retry = true
+
   config.include Devise::TestHelpers, type: :controller
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
@@ -55,6 +58,9 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+    if Rails.env.test?# || Rails.env.cucumber?
+      FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"])
+    end 
   end
 
   # config.infer_base_class_for_anonymous_controllers = false

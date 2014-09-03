@@ -24,7 +24,7 @@ feature "Sign in" do
       @user.destroy
     end
 
-    scenario 'User try to sign in but it is fail' do
+    scenario 'User tries to sign in but it is fail because he is not registered' do
       visit new_user_session_path
       within '#new_user' do
         fill_in 'Email', with: Faker::Internet.email

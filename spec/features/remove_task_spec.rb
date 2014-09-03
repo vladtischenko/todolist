@@ -15,7 +15,7 @@ feature 'Remove task' do
     @user.destroy
   end
 
-  scenario 'User remove task', :js => true do
+  scenario 'User removes task', :js => true do
     page.find('#remove-task').click
     wait_for_ajax
     expect(page).not_to have_selector 'div#task'

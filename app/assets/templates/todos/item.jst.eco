@@ -1,6 +1,6 @@
 <div id="todo_<%= @todo.get('id') %>" class='row todo'>
 
-  <div id="todo<%= @todo.get('id') %>" class='drag' >drag</div>
+  <div id="todo<%= @todo.get('id') %>" class='drag'>drag</div>
 
   <div style='margin-left: -10px'>
     <% if @flag: %>
