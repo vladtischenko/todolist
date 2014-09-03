@@ -22,7 +22,7 @@
               = link_to "Login", new_user_session_path, :class => 'navbar-link'
 
     .my_container
-      = bootstrap_flash
+      -# = bootstrap_flash
       %div#app.app
         = render 'layouts/messages'
         = yield

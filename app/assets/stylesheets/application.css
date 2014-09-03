@@ -27,6 +27,11 @@
   background-color: white;
 }
 
+.devise-links:hover {
+    background-color : transparent;
+    color : inherit;
+}
+
 .drag {
   position: relative;
   z-index: -1;
